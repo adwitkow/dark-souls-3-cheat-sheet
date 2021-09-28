@@ -35,6 +35,8 @@ var profilesKey = 'darksouls3_profiles';
         // Get the right style going...
         themeSetup(buildThemeSelection());
 
+        populatePlaythroughList();
+
         $('ul li[data-id]').each(function() {
             addCheckbox(this);
         });
@@ -547,6 +549,88 @@ var profilesKey = 'darksouls3_profiles';
                 $(this).css('display', '');
             }
         });
+    }
+
+    function populatePlaythroughList() {
+        const playthroughList = $('#playthrough_list');
+        for (const area of playthroughData) {
+            const headerElement = createHeaderElement(area);
+
+            playthroughList.append(headerElement);
+
+            const listElement = createListElement(area);
+
+            playthroughList.append(listElement)
+        }
+    }
+
+    function createListElement(area) {
+        const listElement = $(document.createElement('ul'));
+        listElement.attr('id', `${area.name}_col`);
+        listElement.addClass('collapse in');
+
+        area.steps.forEach(function(step, i) {
+            const itemElement = createStepElement(area, step, i);
+
+            listElement.append(itemElement);
+        });
+
+        return listElement;
+    }
+
+    function createHeaderElement(area) {
+        const headerElement = $(document.createElement('h3'));
+        headerElement.attr('id', area.name);
+
+        const plusButtonElement = createPlusButtonElement(area.name);
+        const wikiLinkElement = createWikiLinkElement(area.wikiUrl, area.displayName);
+        const totalsElement = createTotalsElement(area.id);
+
+        headerElement.append(plusButtonElement);
+        headerElement.append(wikiLinkElement);
+        headerElement.append(' ')
+        headerElement.append(totalsElement);
+
+        return headerElement;
+    }
+
+    function createPlusButtonElement(areaName) {
+        const plusButtonElement = $(document.createElement('a'));
+        plusButtonElement.attr('href', `#${areaName}_col`);
+        plusButtonElement.attr('data-toggle', 'collapse');
+        plusButtonElement.addClass('btn btn-primary btn-collapse btn-sm');
+        return plusButtonElement;
+    }
+
+    function createWikiLinkElement(wikiUrl, displayName) {
+        const wikiLinkElement = $(document.createElement('a'));
+        wikiLinkElement.attr('href', wikiUrl);
+        wikiLinkElement.text(displayName);
+        return wikiLinkElement;
+    }
+
+    function createTotalsElement(areaId) {
+        const totalsElement = $(document.createElement('span'));
+        totalsElement.attr('id', `playthrough_totals_${areaId}`);
+        return totalsElement;
+    }
+
+    function createStepElement(area, step, index) {
+        const stepElement = $(document.createElement('li'));
+        stepElement.attr('data-id', `playthrough_${area.id}_${index+1}`);
+
+        const filters = step.filters.join(' ');
+        stepElement.addClass(filters);
+
+        let description = step.description;
+        for(const entity of step.entities) {
+            const elementHtml = `<a href='${entity.details.wikiUrl}'>${entity.details.name}</a>`;
+            description = description.replaceAll(entity.tagName, elementHtml);
+        }
+
+        stepElement.html(description);
+
+        return stepElement;
     }
 
     /*
