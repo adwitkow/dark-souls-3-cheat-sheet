@@ -6923,7 +6923,7 @@ const playthroughData = [
   },
   {
     "name": "Smouldering_Lake",
-    "displayName": "Smouldering Lake",
+    "displayName": "Smouldering Lake (Optional)",
     "wikiUrl": "http://darksouls3.wiki.fextralife.com/Smouldering+Lake",
     "id": 14,
     "steps": [
@@ -10875,7 +10875,7 @@ const playthroughData = [
   },
   {
     "name": "Consumed_Kings_Garden",
-    "displayName": "Consumed King's Garden",
+    "displayName": "Consumed King's Garden (Optional)",
     "wikiUrl": "http://darksouls3.wiki.fextralife.com/Consumed+King's+Garden",
     "id": 10,
     "steps": [
@@ -11227,7 +11227,7 @@ const playthroughData = [
   },
   {
     "name": "Untended_Graves",
-    "displayName": "Untended Graves",
+    "displayName": "Untended Graves (Optional)",
     "wikiUrl": "http://darksouls3.wiki.fextralife.com/Untended+Graves",
     "id": 11,
     "steps": [
@@ -11583,7 +11583,7 @@ const playthroughData = [
   },
   {
     "name": "Archdragon_Peak",
-    "displayName": "Archdragon Peak",
+    "displayName": "Archdragon Peak (Optional)",
     "wikiUrl": "http://darksouls3.wiki.fextralife.com/Archdragon+Peak",
     "id": 12,
     "steps": [
@@ -14991,7 +14991,7 @@ const playthroughData = [
   },
   {
     "name": "Painted_World_of_Ariandel",
-    "displayName": "Painted World of Ariandel",
+    "displayName": "Painted World of Ariandel (Ashes of Ariandel DLC)",
     "wikiUrl": "http://darksouls3.wiki.fextralife.com/Painted+World+of+Ariandel",
     "id": 20,
     "steps": [
@@ -16533,7 +16533,7 @@ const playthroughData = [
   },
   {
     "name": "The_Dreg_Heap",
-    "displayName": "The Dreg Heap",
+    "displayName": "The Dreg Heap (The Ringed City DLC)",
     "wikiUrl": "http://darksouls3.wiki.fextralife.com/The+Dreg+Heap",
     "id": 21,
     "steps": [
@@ -17375,7 +17375,7 @@ const playthroughData = [
   },
   {
     "name": "The_Ringed_City",
-    "displayName": "The Ringed City",
+    "displayName": "The Ringed City (The Ringed City DLC)",
     "wikiUrl": "http://darksouls3.wiki.fextralife.com/The+Ringed+City",
     "id": 22,
     "steps": [
