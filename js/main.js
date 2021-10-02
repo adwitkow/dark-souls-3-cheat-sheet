@@ -569,8 +569,8 @@ var profilesKey = 'darksouls3_profiles';
         listElement.attr('id', `${area.name}_col`);
         listElement.addClass('collapse in');
 
-        area.steps.forEach(function(step, i) {
-            const itemElement = createStepElement(area, step, i);
+        area.steps.forEach(function(step) {
+            const itemElement = createStepElement(area, step);
 
             listElement.append(itemElement);
         });
@@ -615,9 +615,9 @@ var profilesKey = 'darksouls3_profiles';
         return totalsElement;
     }
 
-    function createStepElement(area, step, index) {
+    function createStepElement(area, step) {
         const stepElement = $(document.createElement('li'));
-        stepElement.attr('data-id', `playthrough_${area.id}_${index+1}`);
+        stepElement.attr('data-id', `playthrough_${area.id}_${step.id}`);
 
         const filters = step.filters.join(' ');
         stepElement.addClass(filters);
